@@ -24,7 +24,7 @@ class Field {
     return minedAndMarked || safeAndOpened;
   }
 
-  bool get safeNeighbor => neighbors.every((neighbor) => !neighbor.mined);
+  bool get safeNeighborhood => neighbors.every((neighbor) => !neighbor.mined);
   int get minesInNeighborhood =>
       neighbors.where((neighbor) => neighbor.mined).length;
 
@@ -47,7 +47,7 @@ class Field {
       throw ExplosionException();
     }
 
-    if (safeNeighbor) {
+    if (safeNeighborhood) {
       for (Field neighbor in neighbors) {
         neighbor.open();
       }
