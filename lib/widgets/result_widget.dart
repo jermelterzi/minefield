@@ -5,7 +5,7 @@ class ResultWidget extends StatelessWidget implements PreferredSize {
       : super(key: key);
 
   final bool? win;
-  final Function onRestart;
+  final Function() onRestart;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class ResultWidget extends StatelessWidget implements PreferredSize {
                 color: Colors.black,
                 size: 32,
               ),
-              onPressed: onRestart(),
+              onPressed: onRestart,
             )),
       )),
     );
