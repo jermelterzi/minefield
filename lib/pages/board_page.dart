@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:minefield/models/board.dart';
 import 'package:minefield/models/exceptions/explosion_exception.dart';
@@ -8,7 +6,9 @@ import 'package:minefield/widgets/board_widget.dart';
 import 'package:minefield/widgets/result_widget.dart';
 
 class BoardPage extends StatefulWidget {
-  const BoardPage({Key? key}) : super(key: key);
+  const BoardPage({Key? key, required this.bombs}) : super(key: key);
+
+  final int bombs;
 
   @override
   State<BoardPage> createState() => _BoardPageState();
@@ -87,9 +87,8 @@ class _BoardPageState extends State<BoardPage> {
       _board = Board(
         lines: lines,
         columns: columns,
-        bombs: 32,
+        bombs: widget.bombs,
       );
-      log('${_board.lines}');
     }
     return _board;
   }
